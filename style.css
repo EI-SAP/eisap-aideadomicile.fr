@@ -1,0 +1,421 @@
+/* 1. VARIABLES - Pour changer les couleurs facilement */
+:root {
+    --primary: #2563eb;       /* Bleu principal */
+    --primary-dark: #1e40af;  /* Bleu foncé au survol */
+    --secondary: #2fa36b;     /* Vert (pour le dégradé et les accents) */
+    --text: #1f2937;          /* Couleur du texte foncé */
+    --light-bg: #f8fafc;      /* Fond gris très clair */
+    --white: #ffffff;
+    --gray-icon: #9ca3af;     /* Couleur des icônes */
+    --border-color: #e5e7eb;  /* Couleur des bordures fines */
+}
+
+/* 2. RESET - On remet tout à plat */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Pour que le clic dans le menu glisse doucement */
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.6;
+}
+
+/* 3. HEADER & NAVIGATION */
+.header {
+    position: sticky;
+    top: 0;
+    background: var(--white);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--primary);
+}
+
+/* --- MODIFICATION LOGO ICI --- */
+.logo-ei-sap {
+    height: 75px;  /* J'ai agrandi le logo ici (avant c'était 45px) */
+    width: auto;
+}
+/* ----------------------------- */
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: var(--primary);
+}
+
+/* 4. HERO SECTION (Bandeau du haut) */
+.hero {
+    min-height: 75vh;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: auto;
+    padding: 40px 0;
+}
+
+.hero h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 20px;
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 35px;
+    opacity: 0.95;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--white);
+    color: var(--primary);
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    background-color: #f0f0f0;
+}
+
+/* 5. SECTIONS GÉNÉRALES */
+.section {
+    padding: 100px 20px;
+}
+
+.section h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+    color: var(--text);
+    position: relative;
+}
+
+/* Petit trait sous les titres */
+.section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--secondary);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.gray {
+    background: var(--light-bg);
+}
+
+.text-center {
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+    font-size: 1.1rem;
+    color: #4b5563;
+}
+
+/* 6. GRILLES (SERVICES ET VALEURS) */
+.cards, .values {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--border-color);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.card p {
+    color: #6b7280;
+}
+
+.values div {
+    text-align: center;
+    padding: 20px;
+}
+
+.values h3 {
+    margin: 15px 0 10px;
+    font-size: 1.2rem;
+}
+
+/* 7. SECTION CONTACT (Layout) */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    max-width: 1100px;
+    margin: auto;
+    align-items: start;
+}
+
+.contact-text h2 {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.contact-text h2::after {
+    margin: 15px 0 0;
+}
+
+/* FORMULAIRE */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    font-size: 16px;
+    width: 100%;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form button {
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 15px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.contact-form button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+}
+
+/* --- BANDEAU DE CONTACT --- */
+.contact-info-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.06); /* Ombre douce et large */
+    margin-top: 60px;
+    width: 100%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #f0f0f0;
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: center;
+    font-size: 1.15rem;
+    color: var(--text);
+}
+
+.contact-info-item i {
+    margin-right: 15px;
+    color: var(--gray-icon);
+    font-size: 1.4rem;
+}
+
+.contact-info-item span {
+    font-weight: 700;
+}
+
+.contact-info-separator {
+    height: 50px;
+    width: 2px;
+    background-color: var(--border-color);
+    margin: 0 50px;
+}
+
+/* 8. FOOTER */
+.footer {
+    background: #111827;
+    color: #9ca3af;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.9rem;
+}
+
+/* 9. ANIMATIONS */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s forwards ease-out;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 10. RESPONSIVE */
+@media (max-width: 900px) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .contact-text h2 {
+        text-align: center;
+    }
+    
+    .contact-text h2::after {
+        margin: 15px auto 0;
+    }
+
+    .contact-text p {
+        text-align: center;
+    }
+
+    .contact-form button {
+        align-self: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .menu {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .section {
+        padding: 60px 20px;
+    }
+
+    .hero {
+        min-height: 60vh;
+    }
+
+    /* Adaptation du bandeau sur mobile */
+    .contact-info-banner {
+        flex-direction: column;
+        padding: 25px;
+        gap: 25px;
+        align-items: flex-start;
+    }
+
+    .contact-info-separator {
+        display: none;
+    }
+    
+    .contact-info-item {
+        width: 100%;
+        font-size: 1rem;
+    }
+}
+
+section {
+    scroll-margin-top: 80px;
+}

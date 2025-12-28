@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EI SAP – Aide à la personne à domicile</title>
+    <meta name="description" content="EI SAP est une entreprise de services d’aide à la personne à domicile. Accompagnement, aide quotidienne et soutien administratif avec professionnalisme et bienveillance.">
+    <meta name="keywords" content="aide à la personne, service à domicile, accompagnement, aide quotidienne, EI SAP">
+    <meta name="author" content="EI SAP">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container">
+        <a href="#" class="logo">
+            <img src="images/logo-ei-sap.png" alt="EI SAP" class="logo-ei-sap">
+            <span>EI SAP</span>
+        </a>
+        <nav>
+            <ul class="menu">
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#valeurs">Valeurs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-content fade-up">
+            <h2>Bienvenue sur notre site,<br>découvrez EI SAP, votre service d’aide à la personne</h2>
+            <p>Un accompagnement humain, professionnel et bienveillant au quotidien</p>
+            <a href="#contact" class="btn">Nous contacter</a>
+        </div>
+    </section>
+
+    <section id="apropos" class="section gray fade-up">
+        <div class="container">
+            <h2>À propos</h2>
+            <p class="text-center">
+                EI SAP est une entreprise de services d’aide à la personne, dédiée à l’accompagnement des personnes dans leur quotidien. 
+                Nous intervenons avec professionnalisme, écoute et bienveillance afin d’apporter un soutien adapté à chaque situation. 
+                Notre priorité est de favoriser le bien-être, l’autonomie et la tranquillité de nos bénéficiaires à domicile.
+            </p>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="fade-up">Nos services</h2>
+            <div class="cards">
+                <div class="card fade-up">
+                    <h3>Aide à domicile</h3>
+                    <p>Aide aux tâches du quotidien et présence rassurante.</p>
+                </div>
+                <div class="card fade-up delay-1">
+                    <h3>Accompagnement</h3>
+                    <p>Accompagnement aux rendez-vous et sorties.</p>
+                </div>
+                <div class="card fade-up delay-2">
+                    <h3>Aide administrative</h3>
+                    <p>Soutien dans les démarches administratives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="valeurs" class="section gray">
+        <div class="container">
+            <h2 class="fade-up">Nos valeurs</h2>
+            <div class="values">
+                <div class="fade-up">🤝<h3>Humanité</h3><p>Respect et bienveillance.</p></div>
+                <div class="fade-up delay-1">✅<h3>Confiance</h3><p>Sérieux et fiabilité.</p></div>
+                <div class="fade-up delay-2">🏠<h3>Proximité</h3><p>Présence locale.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact fade-up">
+        <div class="container">
+            <div class="contact-layout">
+                <div class="contact-text">
+                    <h2>Contact</h2>
+                    <p>Une question ? Un besoin d’accompagnement ? Contactez EI SAP.</p>
+                </div>
+                
+                <form class="contact-form" id="contact-form">
+                    <input type="text" name="nom" placeholder="Votre nom" required>
+                    <input type="email" name="email" placeholder="Votre email" required>
+                    <input type="tel" name="telephone" placeholder="Votre téléphone">
+                    <textarea name="message" placeholder="Votre message" required></textarea>
+                    <button type="submit">Envoyer le message</button>
+                </form>
+            </div>
+
+            <div class="contact-info-banner">
+                <div class="contact-info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Email : contact.ramyservices@gmail.com</span>
+                </div>
+                <div class="contact-info-separator"></div>
+                <div class="contact-info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>Téléphone : 06 05 55 87 57</span>
+                </div>
+            </div>
+            </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>© 2025 – EI SAP • Aide à la personne</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+    (function () {
+        // Remplace par ta VRAIE clé publique EmailJS
+        emailjs.init("ccgYe6kWpUy22bONW"); 
+    })();
+
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        
+        const btn = this.querySelector("button");
+        const originalText = btn.innerText;
+        btn.innerText = "Envoi en cours...";
+        btn.disabled = true;
+
+        emailjs.sendForm("service_mlo6wum", "template_xj4fs4f", this)
+        .then(function () {
+            alert("Merci ! Votre message a bien été envoyé.");
+            document.getElementById("contact-form").reset();
+        })
+        .catch(function (error) {
+            alert("Erreur lors de l’envoi du message. Veuillez réessayer.");
+            console.error("EmailJS error:", error);
+        })
+        .finally(function() {
+            btn.innerText = originalText;
+            btn.disabled = false;
+        });
+    });
+</script>
+
+</body>
+</html>
