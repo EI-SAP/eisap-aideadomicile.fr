@@ -18,7 +18,7 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Pour que le clic dans le menu glisse doucement */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -58,12 +58,10 @@ body {
     color: var(--primary);
 }
 
-/* --- MODIFICATION LOGO ICI --- */
 .logo-ei-sap {
-    height: 75px;  /* J'ai agrandi le logo ici (avant c'était 45px) */
+    height: 75px;
     width: auto;
 }
-/* ----------------------------- */
 
 .menu {
     display: flex;
@@ -143,9 +141,9 @@ body {
     margin-bottom: 50px;
     color: var(--text);
     position: relative;
+    width: 100%; /* Assure que le titre prend toute la largeur */
 }
 
-/* Petit trait sous les titres */
 .section h2::after {
     content: '';
     display: block;
@@ -163,7 +161,7 @@ body {
 .text-center {
     text-align: center;
     max-width: 800px;
-    margin: auto;
+    margin: 0 auto; /* Centré horizontalement */
     font-size: 1.1rem;
     color: #4b5563;
 }
@@ -211,6 +209,87 @@ body {
 .values h3 {
     margin: 15px 0 10px;
     font-size: 1.2rem;
+}
+
+/* -------------------------------------- */
+/* --- NOUVEAU : BANDEAU AVANTAGE FISCAL --- */
+/* -------------------------------------- */
+.tax-banner {
+    background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 50%, #2fa36b 100%);
+    color: var(--white);
+    padding: 50px 20px;
+    margin: 40px 0;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
+}
+
+.tax-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.tax-icon i {
+    font-size: 3.5rem;
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+.tax-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.tax-text p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    opacity: 0.95;
+}
+
+/* -------------------------------------- */
+/* --- NOUVEAU : ZONES D'INTERVENTION --- */
+/* -------------------------------------- */
+.zones-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.zone-tag {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    color: var(--primary);
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.zone-tag i {
+    color: var(--secondary);
+}
+
+.zone-tag:hover {
+    background: var(--primary);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
+    border-color: var(--primary);
+}
+
+.zone-tag:hover i {
+    color: var(--white);
 }
 
 /* 7. SECTION CONTACT (Layout) */
@@ -294,7 +373,7 @@ body {
     background-color: var(--white);
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.06); /* Ombre douce et large */
+    box-shadow: 0 5px 25px rgba(0,0,0,0.06); 
     margin-top: 60px;
     width: 100%;
     max-width: 1100px;
@@ -398,7 +477,6 @@ body {
         min-height: 60vh;
     }
 
-    /* Adaptation du bandeau sur mobile */
     .contact-info-banner {
         flex-direction: column;
         padding: 25px;
@@ -413,6 +491,11 @@ body {
     .contact-info-item {
         width: 100%;
         font-size: 1rem;
+    }
+
+    .tax-content {
+        flex-direction: column;
+        text-align: center;
     }
 }
 
