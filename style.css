@@ -21,7 +21,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* ANTI-DEBORDEMENT MOBILE (Fixe le problème de zoom) */
+/* ANTI-DEBORDEMENT MOBILE */
 html, body {
     overflow-x: hidden;
     width: 100%;
@@ -44,15 +44,12 @@ body {
     padding: 10px 0;
 }
 
-/* --- CORRECTION MAJEURE RESPONSIVE --- */
-/* On retire display: flex d'ici pour ne pas casser l'empilement vertical des sections */
 .container {
     max-width: 1100px;
     margin: auto;
     padding: 0 20px;
 }
 
-/* On applique Flex uniquement pour le Header */
 .header-container {
     display: flex;
     justify-content: space-between;
@@ -95,7 +92,7 @@ body {
     color: var(--primary);
 }
 
-/* 4. HERO SECTION */
+/* 4. HERO SECTION (Modifié pour H1 SEO) */
 .hero {
     min-height: 75vh;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -112,7 +109,8 @@ body {
     padding: 40px 0;
 }
 
-.hero h2 {
+/* Ici, on cible h1 au lieu de h2 pour le SEO */
+.hero h1 {
     font-size: clamp(2rem, 5vw, 3rem);
     margin-bottom: 20px;
     line-height: 1.2;
@@ -179,10 +177,9 @@ body {
     color: #4b5563;
 }
 
-/* 6. GRILLES (SERVICES ET VALEURS) */
+/* 6. GRILLES */
 .cards, .values {
     display: grid;
-    /* Ajustement mobile pour éviter l'écrasement */
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 30px;
     max-width: 1100px;
@@ -239,7 +236,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 30px;
-    flex-wrap: wrap; /* Important pour mobile */
+    flex-wrap: wrap;
 }
 
 .tax-icon i {
@@ -290,50 +287,11 @@ body {
     transform: translateY(-3px);
 }
 
-.zone-tag:hover i {
-    color: var(--white);
-}
 .zone-tag i {
     color: var(--secondary);
 }
 
-/* 9. TÉMOIGNAGES (NOUVEAU) */
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
-}
-
-.testimonial-card {
-    background: var(--white);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    text-align: center;
-    border-top: 4px solid var(--primary);
-}
-
-.stars {
-    color: #fbbf24; /* Or */
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-}
-
-.testimonial-card p {
-    font-style: italic;
-    margin-bottom: 20px;
-    color: #4b5563;
-}
-
-.author {
-    font-weight: 700;
-    color: var(--text);
-    display: block;
-    font-size: 0.9rem;
-}
-
-/* 10. FAQ (NOUVEAU) */
+/* 9. FAQ */
 .faq-container {
     max-width: 800px;
     margin: 0 auto;
@@ -377,14 +335,14 @@ body {
 }
 
 .faq-item.active .faq-answer {
-    max-height: 200px; /* On ouvre la boîte */
+    max-height: 200px;
 }
 
 .faq-item.active .faq-question i {
     transform: rotate(180deg);
 }
 
-/* 11. SECTION CONTACT */
+/* 10. SECTION CONTACT */
 .contact-layout {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
@@ -448,7 +406,7 @@ body {
     background: var(--primary-dark);
 }
 
-/* 12. BANDEAU CONTACT */
+/* 11. BANDEAU CONTACT */
 .contact-info-banner {
     display: flex;
     justify-content: center;
@@ -489,7 +447,7 @@ body {
     margin: 0 50px;
 }
 
-/* 13. BOUTON FLOTTANT (NOUVEAU) */
+/* 12. BOUTON FLOTTANT */
 .floating-phone-btn {
     position: fixed;
     bottom: 20px;
@@ -520,14 +478,13 @@ body {
     100% { box-shadow: 0 0 0 0 rgba(47, 163, 107, 0); }
 }
 
-/* On cache le bouton sur PC pour ne pas gêner */
 @media (min-width: 769px) {
     .floating-phone-btn {
         display: none;
     }
 }
 
-/* 14. FOOTER */
+/* 13. FOOTER */
 .footer {
     background: #111827;
     color: #9ca3af;
@@ -552,7 +509,7 @@ body {
     color: var(--white);
 }
 
-/* 15. ANIMATIONS */
+/* 14. ANIMATIONS */
 .fade-up {
     opacity: 0;
     transform: translateY(30px);
@@ -565,7 +522,7 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* 16. MEDIA QUERIES (RESPONSIVE MOBILE) */
+/* 15. MEDIA QUERIES (RESPONSIVE) */
 @media (max-width: 900px) {
     .contact-layout {
         grid-template-columns: 1fr;
@@ -605,7 +562,6 @@ body {
         min-height: 60vh;
     }
 
-    /* Fix du bandeau contact sur mobile */
     .contact-info-banner {
         flex-direction: column;
         padding: 25px;
