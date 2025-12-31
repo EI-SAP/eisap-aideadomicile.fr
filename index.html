@@ -4,7 +4,7 @@
     <meta name="google-site-verification" content="WfGTmjvOtrH0LiRoWrcCDsyEMI9pKjrJ9u_XUHUPji0" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EI SAP – Aide à la personne à domicile</title>
+    <title>EI SAP – Aide à la personne à domicile & Crédit d'Impôt</title>
     <meta name="description" content="EI SAP : Aide à domicile et auxiliaire de vie sur Pontault-Combault et environs. Bénéficiez de 50% de crédit d'impôt. Services professionnels et humains.">
     <meta name="keywords" content="aide à la personne, auxiliaire de vie, Pontault-Combault, Roissy-en-Brie, crédit d'impôt, garde malade, EI SAP">
     <meta name="author" content="EI SAP">
@@ -24,7 +24,7 @@
             <ul class="menu">
                 <li><a href="#apropos">À propos</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#valeurs">Valeurs</a></li>
+                <li><a href="#avis">Avis</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -123,6 +123,55 @@
         </div>
     </section>
 
+    <section id="avis" class="section gray">
+        <div class="container">
+            <h2 class="fade-up">Ils nous font confiance</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-up">
+                    <div class="stars">★★★★★</div>
+                    <p>"Une équipe très professionnelle et humaine. Ma mère est ravie de son auxiliaire de vie. Je recommande pour le sérieux."</p>
+                    <span class="author">- Famille D., Pontault-Combault</span>
+                </div>
+                <div class="testimonial-card fade-up delay-1">
+                    <div class="stars">★★★★★</div>
+                    <p>"La mise en place du crédit d'impôt a été très simple grâce à leur aide administrative. Un vrai soulagement au quotidien."</p>
+                    <span class="author">- Marc L., Roissy-en-Brie</span>
+                </div>
+                <div class="testimonial-card fade-up delay-2">
+                    <div class="stars">★★★★★</div>
+                    <p>"Ponctualité et bienveillance. C'est rassurant de savoir mon père entre de bonnes mains."</p>
+                    <span class="author">- Claire M., Ozoir</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section">
+        <div class="container">
+            <h2 class="fade-up">Questions Fréquentes</h2>
+            <div class="faq-container">
+                <div class="faq-item fade-up">
+                    <button class="faq-question">Comment fonctionne le crédit d'impôt de 50% ? <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="faq-answer">
+                        <p>C'est très simple : 50% des sommes versées sont déduites de vos impôts. Si vous ne payez pas d'impôts, le Trésor Public vous rembourse cette somme (crédit d'impôt immédiat via l'URSSAF possible).</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-up delay-1">
+                    <button class="faq-question">Y a-t-il un engagement de durée ? <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="faq-answer">
+                        <p>Non, nos contrats sont sans engagement de durée fixe. Vous pouvez adapter les heures selon vos besoins ou arrêter les prestations avec un simple préavis.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-up delay-2">
+                    <button class="faq-question">Intervenez-vous les week-ends et jours fériés ? <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="faq-answer">
+                        <p>Oui, nous assurons une continuité de service 7j/7, y compris les week-ends et jours fériés, selon les besoins du bénéficiaire.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="contact" class="section contact gray fade-up">
         <div class="container">
             <div class="contact-layout">
@@ -156,15 +205,26 @@
 </main>
 
 <footer class="footer">
-    <p>© 2025 – EI SAP • Aide à la personne</p>
+    <div class="container">
+        <p>© 2025 – EI SAP • Aide à la personne</p>
+        <div class="legal-links">
+            <a href="#">Mentions Légales</a> | <a href="#">Politique de Confidentialité</a>
+        </div>
+    </div>
 </footer>
+
+<a href="tel:0605558757" class="floating-phone-btn">
+    <i class="fa-solid fa-phone"></i>
+</a>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
+    // Initialisation EmailJS
     (function () {
         emailjs.init("ccgYe6kWpUy22bONW"); 
     })();
 
+    // Gestion du formulaire de contact
     document.getElementById("contact-form").addEventListener("submit", function (e) {
         e.preventDefault();
         
@@ -185,6 +245,21 @@
         .finally(function() {
             btn.innerText = originalText;
             btn.disabled = false;
+        });
+    });
+
+    // Gestion de la FAQ (Accordéon)
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            // Ferme les autres questions ouvertes
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) otherItem.classList.remove('active');
+            });
+            // Bascule la question actuelle
+            item.classList.toggle('active');
         });
     });
 </script>
