@@ -92,7 +92,7 @@ body {
     color: var(--primary);
 }
 
-/* 4. HERO SECTION (Modifié pour H1 SEO) */
+/* 4. HERO SECTION */
 .hero {
     min-height: 75vh;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -109,7 +109,7 @@ body {
     padding: 40px 0;
 }
 
-/* Ici, on cible h1 au lieu de h2 pour le SEO */
+/* Titre H1 SEO */
 .hero h1 {
     font-size: clamp(2rem, 5vw, 3rem);
     margin-bottom: 20px;
@@ -177,7 +177,47 @@ body {
     color: #4b5563;
 }
 
-/* 6. GRILLES */
+/* 6. LOGOS DE CONFIANCE */
+.trust-logos {
+    background-color: #f3f4f6;
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.trust-text {
+    font-weight: 600;
+    color: #4b5563;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.logos-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    color: var(--text);
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.trust-badge i {
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+/* 7. GRILLES (CARDS / VALUES) */
 .cards, .values {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -221,7 +261,7 @@ body {
     font-size: 1.2rem;
 }
 
-/* 7. BANDEAU FISCAL */
+/* 8. BANDEAU FISCAL */
 .tax-banner {
     background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 50%, #2fa36b 100%);
     color: var(--white);
@@ -256,7 +296,59 @@ body {
     max-width: 600px;
 }
 
-/* 8. ZONES D'INTERVENTION */
+/* 9. SECTION PROCESS (Comment ça marche) */
+.steps-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    position: relative;
+}
+
+.step {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+    background: var(--white);
+    padding: 30px 20px;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.step:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.step-number {
+    background: var(--primary);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0 auto 20px;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.step h3 {
+    margin-bottom: 10px;
+    color: var(--text);
+}
+
+.step p {
+    font-size: 0.95rem;
+    color: #6b7280;
+}
+
+/* 10. ZONES D'INTERVENTION */
 .zones-container {
     display: flex;
     flex-wrap: wrap;
@@ -291,7 +383,7 @@ body {
     color: var(--secondary);
 }
 
-/* 9. FAQ */
+/* 11. FAQ */
 .faq-container {
     max-width: 800px;
     margin: 0 auto;
@@ -342,7 +434,7 @@ body {
     transform: rotate(180deg);
 }
 
-/* 10. SECTION CONTACT */
+/* 12. SECTION CONTACT */
 .contact-layout {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
@@ -406,7 +498,7 @@ body {
     background: var(--primary-dark);
 }
 
-/* 11. BANDEAU CONTACT */
+/* 13. BANDEAU CONTACT */
 .contact-info-banner {
     display: flex;
     justify-content: center;
@@ -447,7 +539,7 @@ body {
     margin: 0 50px;
 }
 
-/* 12. BOUTON FLOTTANT */
+/* 14. BOUTON FLOTTANT */
 .floating-phone-btn {
     position: fixed;
     bottom: 20px;
@@ -484,7 +576,7 @@ body {
     }
 }
 
-/* 13. FOOTER */
+/* 15. FOOTER */
 .footer {
     background: #111827;
     color: #9ca3af;
@@ -509,7 +601,7 @@ body {
     color: var(--white);
 }
 
-/* 14. ANIMATIONS */
+/* 16. ANIMATIONS */
 .fade-up {
     opacity: 0;
     transform: translateY(30px);
@@ -522,7 +614,7 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* 15. MEDIA QUERIES (RESPONSIVE) */
+/* 17. MEDIA QUERIES (RESPONSIVE) */
 @media (max-width: 900px) {
     .contact-layout {
         grid-template-columns: 1fr;
@@ -588,5 +680,13 @@ body {
     .tax-content {
         flex-direction: column;
         text-align: center;
+    }
+    
+    /* Responsive pour les étapes */
+    .steps-container {
+        flex-direction: column;
+    }
+    .trust-badge {
+        font-size: 1rem;
     }
 }
