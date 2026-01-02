@@ -106,7 +106,7 @@ body {
     background: var(--primary-dark);
 }
 
-/* 4. HERO SECTION (Image Mains) */
+/* 4. HERO SECTION */
 .hero {
     min-height: 75vh;
     background: linear-gradient(135deg, rgba(37, 99, 235, 0.85), rgba(47, 163, 107, 0.85)), url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=1350&q=80');
@@ -374,7 +374,7 @@ body {
     margin: 0 auto;
 }
 
-/* NOUVEAU STYLE POUR LES TITRES 77/94 */
+/* STYLE POUR LES TITRES 77/94 */
 .dept-title {
     text-align: center;
     color: var(--text);
