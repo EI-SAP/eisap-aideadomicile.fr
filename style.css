@@ -233,7 +233,7 @@ body {
     color: var(--primary);
 }
 
-/* 7. GRILLES */
+/* 7. GRILLES (AVEC NOUVEAUX STYLES D'ICÔNES) */
 .cards, .values {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -257,6 +257,20 @@ body {
     border-color: var(--border-color);
 }
 
+/* Nouveau : Style des icônes dans les services */
+.service-icon {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(37, 99, 235, 0.1); /* Bleu très clair */
+    color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    font-size: 1.5rem;
+}
+
 .card h3 {
     color: var(--primary);
     margin-bottom: 15px;
@@ -277,22 +291,32 @@ body {
     font-size: 1.2rem;
 }
 
-/* 8. BANDEAU FISCAL */
+/* 8. BANDEAU FISCAL ET BOITE DE PRIX (NOUVEAU) */
 .tax-banner {
     background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 50%, #2fa36b 100%);
     color: var(--white);
-    padding: 50px 20px;
+    padding: 60px 20px;
     margin: 40px 0;
-    text-align: center;
     box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
 }
 
-.tax-content {
+/* Mise en page pour avoir le texte à gauche et la boite à droite */
+.tax-layout {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 50px;
+    max-width: 1100px;
+    margin: auto;
+    flex-wrap: wrap; /* Important pour mobile */
+}
+
+.tax-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
     gap: 30px;
-    flex-wrap: wrap;
+    min-width: 300px;
 }
 
 .tax-icon i {
@@ -309,7 +333,69 @@ body {
 
 .tax-text p {
     font-size: 1.2rem;
-    max-width: 600px;
+    opacity: 0.9;
+}
+
+/* Style de la boite de prix */
+.price-example-box {
+    background: white;
+    color: var(--text);
+    padding: 25px;
+    border-radius: 15px;
+    width: 300px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    position: relative;
+    transform: rotate(2deg); /* Petit effet design */
+    transition: transform 0.3s;
+}
+
+.price-example-box:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.price-tag {
+    background: var(--secondary);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 5px;
+}
+
+.price-row.deduction {
+    color: var(--secondary);
+}
+
+.price-row.final {
+    border-bottom: none;
+    font-size: 1.1rem;
+    margin-top: 15px;
+    background: #f0fdf4; /* Vert très clair */
+    padding: 10px;
+    border-radius: 8px;
+    color: #166534; /* Vert foncé */
+}
+
+.price-note {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    text-align: center;
+    margin-top: 10px;
+    font-style: italic;
 }
 
 /* 9. PROCESS */
@@ -374,7 +460,6 @@ body {
     margin: 0 auto;
 }
 
-/* STYLE POUR LES TITRES 77/94 */
 .dept-title {
     text-align: center;
     color: var(--text);
@@ -525,7 +610,7 @@ body {
     background: var(--primary-dark);
 }
 
-/* 13. BANDEAU CONTACT & FACEBOOK */
+/* 13. BANDEAU CONTACT */
 .contact-info-banner {
     display: flex;
     justify-content: center;
@@ -559,7 +644,6 @@ body {
     flex-shrink: 0; 
 }
 
-/* Style spécial pour le lien Facebook dans le bandeau */
 .fb-link-banner {
     text-decoration: none;
     color: var(--text);
@@ -619,7 +703,7 @@ body {
     }
 }
 
-/* 15. FOOTER & SOCIAL */
+/* 15. FOOTER */
 .footer {
     background: #111827;
     color: #9ca3af;
@@ -684,7 +768,7 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* 17. MEDIA QUERIES (RESPONSIVE) */
+/* 17. MEDIA QUERIES */
 @media (max-width: 900px) {
     .contact-layout {
         grid-template-columns: 1fr;
@@ -729,7 +813,21 @@ body {
         background-attachment: scroll; 
     }
 
-    /* Adaptation Mobile du bandeau contact */
+    /* Le bandeau de prix doit passer en colonne sur mobile */
+    .tax-layout {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    .tax-content {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column; /* Icone au dessus du texte */
+    }
+    .tax-text p {
+        text-align: center;
+    }
+
     .contact-info-banner {
         flex-direction: column;
         padding: 25px;
@@ -753,11 +851,6 @@ body {
         margin-bottom: 5px;
     }
 
-    .tax-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    
     .steps-container {
         flex-direction: column;
     }
