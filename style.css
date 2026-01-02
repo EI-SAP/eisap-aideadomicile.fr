@@ -8,6 +8,7 @@
     --white: #ffffff;
     --gray-icon: #9ca3af;
     --border-color: #e5e7eb;
+    --facebook-blue: #1877F2;
 }
 
 /* 2. RESET */
@@ -92,7 +93,6 @@ body {
     color: var(--primary);
 }
 
-/* Bouton téléphone dans le menu */
 .btn-menu {
     background: var(--primary);
     color: white !important;
@@ -106,14 +106,12 @@ body {
     background: var(--primary-dark);
 }
 
-/* 4. HERO SECTION (AVEC IMAGE DE FOND CHALEUREUSE) */
+/* 4. HERO SECTION (Image Mains) */
 .hero {
     min-height: 75vh;
-    /* On superpose le dégradé bleu/vert sur une image de fond chaleureuse */
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.85), rgba(47, 163, 107, 0.85)), url('https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1350&q=80');
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.85), rgba(47, 163, 107, 0.85)), url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=1350&q=80');
     background-size: cover;
     background-position: center;
-    /* L'effet fixed permet à l'image de rester fixe quand on scrolle (effet sympa) */
     background-attachment: fixed;
     display: flex;
     align-items: center;
@@ -235,7 +233,7 @@ body {
     color: var(--primary);
 }
 
-/* 7. GRILLES (CARDS / VALUES) */
+/* 7. GRILLES */
 .cards, .values {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -314,7 +312,7 @@ body {
     max-width: 600px;
 }
 
-/* 9. PROCESS (Comment ça marche) */
+/* 9. PROCESS */
 .steps-container {
     display: flex;
     justify-content: space-between;
@@ -366,15 +364,23 @@ body {
     color: #6b7280;
 }
 
-/* 10. ZONES D'INTERVENTION (Optimisé Mobile) */
+/* 10. ZONES D'INTERVENTION */
 .zones-container {
     display: flex;
-    /* C'est cette ligne qui empêche l'effet "échelle" sur mobile */
     flex-wrap: wrap; 
     justify-content: center;
     gap: 12px; 
     max-width: 900px;
     margin: 0 auto;
+}
+
+/* NOUVEAU STYLE POUR LES TITRES 77/94 */
+.dept-title {
+    text-align: center;
+    color: var(--text);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    font-weight: 700;
 }
 
 .zone-tag {
@@ -519,7 +525,7 @@ body {
     background: var(--primary-dark);
 }
 
-/* 13. BANDEAU CONTACT */
+/* 13. BANDEAU CONTACT & FACEBOOK */
 .contact-info-banner {
     display: flex;
     justify-content: center;
@@ -551,6 +557,22 @@ body {
     color: var(--gray-icon);
     font-size: 1.4rem;
     flex-shrink: 0; 
+}
+
+/* Style spécial pour le lien Facebook dans le bandeau */
+.fb-link-banner {
+    text-decoration: none;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    transition: color 0.3s;
+    font-weight: 600;
+}
+.fb-link-banner i {
+    color: var(--facebook-blue);
+}
+.fb-link-banner:hover {
+    color: var(--facebook-blue);
 }
 
 .contact-info-separator {
@@ -597,13 +619,40 @@ body {
     }
 }
 
-/* 15. FOOTER */
+/* 15. FOOTER & SOCIAL */
 .footer {
     background: #111827;
     color: #9ca3af;
     text-align: center;
     padding: 40px 20px;
     font-size: 0.9rem;
+}
+
+.footer-social {
+    margin-bottom: 25px;
+}
+.footer-social p {
+    margin-bottom: 10px;
+    color: #d1d5db;
+    font-weight: 600;
+}
+.social-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    background: #374151;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+.social-icon:hover {
+    background: var(--facebook-blue);
+    transform: translateY(-3px);
+    color: #fff;
 }
 
 .legal-links {
@@ -667,7 +716,6 @@ body {
         justify-content: center;
     }
 
-    /* Cache le bouton téléphone du menu sur mobile */
     .desktop-phone {
         display: none;
     }
@@ -678,10 +726,10 @@ body {
 
     .hero {
         min-height: 60vh;
-        /* Ajustement pour que l'image de fond ne soit pas bizarre sur mobile */
         background-attachment: scroll; 
     }
 
+    /* Adaptation Mobile du bandeau contact */
     .contact-info-banner {
         flex-direction: column;
         padding: 25px;
@@ -710,7 +758,6 @@ body {
         text-align: center;
     }
     
-    /* Responsive pour les étapes */
     .steps-container {
         flex-direction: column;
     }
