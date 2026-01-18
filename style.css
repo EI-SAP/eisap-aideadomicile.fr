@@ -109,7 +109,7 @@ body {
 /* 4. HERO SECTION */
 .hero {
     min-height: 75vh;
-    /* Modification : Fond dégradé simple sans image de fond */
+    /* Fond simple en dégradé (sans image) */
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     background-size: cover;
     background-position: center;
@@ -194,7 +194,7 @@ body {
     color: #4b5563;
 }
 
-/* 6. LOGOS DE CONFIANCE */
+/* 6. LOGOS DE CONFIANCE (MODIFIÉ POUR INCLURE L'IMAGE DU LOGO) */
 .trust-logos {
     background-color: #f3f4f6;
     padding: 30px 20px;
@@ -215,6 +215,7 @@ body {
 .logos-grid {
     display: flex;
     justify-content: center;
+    align-items: center; /* Centrage vertical des éléments */
     gap: 40px;
     flex-wrap: wrap;
 }
@@ -232,6 +233,13 @@ body {
 .trust-badge i {
     font-size: 1.5rem;
     color: var(--primary);
+}
+
+/* NOUVEAU : Style pour l'image du logo SAP */
+.trust-logo-img {
+    height: 60px; /* Hauteur équilibrée avec les textes */
+    width: auto;
+    object-fit: contain;
 }
 
 /* 7. GRILLES (AVEC NOUVEAUX STYLES D'ICÔNES) */
@@ -292,7 +300,7 @@ body {
     font-size: 1.2rem;
 }
 
-/* 8. BANDEAU FISCAL ET BOITE DE PRIX (NOUVEAU) */
+/* 8. BANDEAU FISCAL */
 .tax-banner {
     background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 50%, #2fa36b 100%);
     color: var(--white);
@@ -301,7 +309,7 @@ body {
     box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
 }
 
-/* Mise en page pour avoir le texte à gauche et la boite à droite */
+/* Mise en page */
 .tax-layout {
     display: flex;
     justify-content: center;
@@ -316,6 +324,7 @@ body {
     flex: 1;
     display: flex;
     align-items: center;
+    justify-content: center; /* Centré maintenant */
     gap: 30px;
     min-width: 300px;
 }
@@ -337,67 +346,6 @@ body {
     opacity: 0.9;
 }
 
-/* Style de la boite de prix */
-.price-example-box {
-    background: white;
-    color: var(--text);
-    padding: 25px;
-    border-radius: 15px;
-    width: 300px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    position: relative;
-    transform: rotate(2deg); /* Petit effet design */
-    transition: transform 0.3s;
-}
-
-.price-example-box:hover {
-    transform: rotate(0deg) scale(1.02);
-}
-
-.price-tag {
-    background: var(--secondary);
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-transform: uppercase;
-}
-
-.price-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    font-size: 0.95rem;
-    border-bottom: 1px dashed #eee;
-    padding-bottom: 5px;
-}
-
-.price-row.deduction {
-    color: var(--secondary);
-}
-
-.price-row.final {
-    border-bottom: none;
-    font-size: 1.1rem;
-    margin-top: 15px;
-    background: #f0fdf4; /* Vert très clair */
-    padding: 10px;
-    border-radius: 8px;
-    color: #166534; /* Vert foncé */
-}
-
-.price-note {
-    font-size: 0.75rem;
-    color: #9ca3af;
-    text-align: center;
-    margin-top: 10px;
-    font-style: italic;
-}
 
 /* 9. PROCESS */
 .steps-container {
@@ -813,8 +761,9 @@ body {
         min-height: 60vh;
         background-attachment: scroll; 
     }
+    
+    /* Plus de background-size ici car plus d'image */
 
-    /* Le bandeau de prix doit passer en colonne sur mobile */
     .tax-layout {
         flex-direction: column;
         gap: 30px;
@@ -857,5 +806,10 @@ body {
     }
     .trust-badge {
         font-size: 1rem;
+    }
+
+    /* Ajustement du logo sur mobile */
+    .trust-logo-img {
+        height: 50px;
     }
 }
